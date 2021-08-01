@@ -1,0 +1,44 @@
+ <div class="mainDiv"> 
+    <div class="center">
+    <div class="container center" *ngFor="let launch of launches">
+      <mat-card class="card">
+        <img mat-card-image [src]="launch.links?.patch?.small">
+        <mat-card-content>
+            <p *ngIf="launch.name"> <strong>Name:</strong> {{launch.name}} </p>
+            <p *ngIf="launch.details"> <strong>Details:</strong> {{launch.details}}</p>
+            <p> <strong>Successful mission?</strong> {{launch.success ? 'Yes' : 'No'}}</p>
+            <p> <strong>Flight number:</strong> {{launch.flight_number}} </p>
+            <p> <strong>Last launch day:</strong> {{launch.date_local | date: 'dd/MM/yyyy'}}</p>
+            <p *ngIf="launch.payloads" (click)="modalDialogPayloads.openDialogModalPayloads(launch.payloads)">
+              <strong>Payload: </strong><u class="modal-info">Click me</u>
+            </p>
+            <p *ngIf="launch.crew?.length" (click)="modalDialogCrew.openDialogModalCrews(launch.crew)" > 
+              <strong>Crew: </strong><u class="modal-info">Click me</u>
+            </p>
+            <p *ngIf="launch.rocket" (click)="modalDialogRocket.openDialogModalRockets(launch.rocket)" >
+              <strong>Rocket: </strong><u class="modal-info">Click me</u>
+            </p>
+        </mat-card-content>
+    
+        <mat-card-actions class="Btn">
+          <button mat-raised-button color="warn" *ngIf="launch.links?.webcast">
+            <a [href]="launch.links?.webcast" target="_blank">YouTube</a>
+          </button>
+          <button mat-raised-button color="primary"  *ngIf="launch.links?.wikipedia">
+            <a [href]="launch.links?.wikipedia" target="_blank">Wikipedia</a>
+          </button>
+          <button mat-raised-button color="accent" *ngIf="launch.links?.article">
+            <a [href]="launch.links?.article" target="_blank">Article</a>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+  
+<!-- OPEN MODAL CREW OR PAYLOADS -->
+<app-modal  #modalDialogCrew 
+            #modalDialogPayloads 
+            #modalDialogRocket 
+            class="Disable_html">
+</app-modal>

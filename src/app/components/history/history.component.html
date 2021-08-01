@@ -1,0 +1,18 @@
+
+<div class="mainDiv"> 
+  <div class="center">
+    <div class="container center" *ngFor="let history of histories">
+      <mat-card class="card">
+        <mat-card-content>
+            <p *ngIf="history.title"> <strong>Title:</strong> {{history.title}} </p>
+            <p *ngIf="history.details"> <strong>Details:</strong> {{history.details}}</p>
+        </mat-card-content>
+        <mat-card-actions class="Btn">
+          <button mat-raised-button color="accent" *ngIf="history.links?.article">
+            <a [href]="history.links?.article" target="_blank">Article</a>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

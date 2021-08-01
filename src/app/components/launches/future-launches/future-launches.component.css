@@ -1,0 +1,25 @@
+.card {
+    max-width: 300px;
+    max-height: 300%;
+    border-style: double;
+  }
+
+.container {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .mat-card{
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .mat-card-header {
+    flex-shrink: 0;
+  }
+  
+  .mat-card-content{
+    flex-grow: 1;
+    overflow: auto;
+  }

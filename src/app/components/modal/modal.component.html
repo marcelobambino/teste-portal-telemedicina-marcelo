@@ -1,0 +1,65 @@
+ <!-- MODAL PAYLOADS -->
+  <div class="Modal">
+    <ng-template #dialogPayloads>
+  
+      <div class='Modal_page-wrapper'>
+        <div class='Modal_row'>
+          <div class='Modal_column2'>
+            <div class='Modal_column2'>
+              <div>
+                <p class="label"> Name: {{payload?.name}} </p>
+                <br>
+                <p class="label"> Country: {{payload?.nationalities}} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="BTN">
+        <button mat-stroked-button class="BTN_btn" matDialogClose (click)="close()"> Close </button>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- MODAL CREW -->
+<div class="Modal">
+  <ng-template #dialogCrew> 
+    <div class='Modal_page-wrapper' >
+      <div class='Modal_row'>
+          <div class='center' *ngFor="let crew of crews; let i = index">
+            <span class="Modal_crew" (click)="crewRocket(crew, i)">Crew member {{i+1}}</span>
+          </div>
+          <br><br>
+        <div>
+            <span> <strong>Name:</strong> {{crew?.name? crew?.name : 'No info...'}} </span><br>
+            <span> <strong>Agency:</strong> {{crew?.agency? crew?.agency : 'No info...'}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="BTN">
+      <button mat-stroked-button class="BTN_btn BTN_btn" matDialogClose (click)="close()"> Close </button>
+    </div>
+  </ng-template>
+</div>
+
+  <!-- MODAL  ROCKET -->
+  <div class="Modal">
+    <ng-template #dialogRocket> 
+      <div class='Modal_page-wrapper' >
+        <div>
+          <div>
+              <strong>Rocket: </strong>{{rocket?.name? rocket?.name : 'No info...'}}
+            <br><br>
+            <strong>Diameter:</strong> {{rocket?.diameter?.meters? rocket?.diameter?.meters + ' m' : 'No info...'}}
+            <br><br>
+            <strong> Height:</strong> {{rocket?.height?.meters? rocket?.height?.meters + ' m' : 'No info...'}}
+            <br><br>
+              <strong>Mass: </strong> {{rocket?.mass?.kg? rocket?.mass?.kg + ' kg' : 'No info...'}}
+          </div>
+        </div>
+      </div>
+      <div class="BTN">
+        <button mat-stroked-button class="BTN_btn BTN_btn--active" matDialogClose (click)="close()"> Close </button>
+      </div>
+    </ng-template>
+  </div>
