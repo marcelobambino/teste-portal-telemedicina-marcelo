@@ -1,0 +1,7 @@
+<app-header></app-header>
+<section class="Disable_html">
+  <nav mat-tab-nav-bar class="navColor" >
+       <a mat-tab-link *ngFor="let link of links; index as i"
+       [href]="link"> {{titles[i]}} </a>
+  </nav>
+</section>
